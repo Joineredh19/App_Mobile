@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   String nombre = '';
   String usuario = '';
   String contrasena = '';
+String tokenObtenido = '';
  
 
 
@@ -32,13 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   //String contrasena = '';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder<bool>(
-      future: validacion(),
-      builder: (context, snapshot) {
-        validacion();
-      
-      
+
     return Scaffold(
         body: ListView(
       padding: EdgeInsets.only(top: 0),
@@ -68,8 +63,12 @@ class _LoginPageState extends State<LoginPage> {
             // Llamada a la función para realizar la solicitud
             usuario = _usernameController.text;
             String contrasena = _passwordController.text;
-
+ String tokenGuardado = await obtenerToken();
+ if (tokenGuardado!='') {
+   hacerLogin();
+ }else{
             await fetchData(usuario, contrasena);
+ }
           },
           child: Text('Iniciar Sesión'),
         ),
@@ -88,9 +87,6 @@ class _LoginPageState extends State<LoginPage> {
         ),*/
       ],
     ));
-      }
-      )
-    );
   }
 
   Future<void> fetchData(String usuario, String contrasena) async {
@@ -223,15 +219,6 @@ _navigateToHomeScreen();
  /*print('ESTE ES EL USUARIO DECODIFICADO: $usuario');
 print('ESTE ES LA CONTRASEÑA DECODIFICADO: $contrasena');
 print('ESTE ES EL TOKEN DECODIFICADO: $tokenLogin');*/
-}
-
-Future<bool> validacion() async{
-   String tokenGuardado = await obtenerToken();
- if (tokenGuardado!='') {
-   hacerLogin();
-  
- }
-  return true;
 }
 }
 

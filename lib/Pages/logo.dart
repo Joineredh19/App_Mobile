@@ -1,17 +1,40 @@
 
 import 'package:flutter/material.dart';
+import 'package:primera_aplicacion/Pages/login.dart';
 
-class LogoPage extends StatelessWidget{
-
+class LogoPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context){
-    return GestureDetector(
-      onHorizontalDragStart: (details) => Navigator.pushNamed(context,'login'),
-      child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          body: Center(
-            child: Image.asset('assets/logo.png')
-            ),
+  _LogoScreenState createState() => _LogoScreenState();
+}
+
+
+class _LogoScreenState extends State<LogoPage> {
+  
+  @override
+  void initState() {
+    super.initState();
+    _irAVistaLogin();
+  }
+
+  Future<void> _irAVistaLogin() async {
+    // Espera 3 segundos antes de navegar a la vista de login
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Coloca aquí el widget de tu logo
+            Image.asset('assets/logo.png', width: 250, height: 250),
+            SizedBox(height: 20),
+          ],
+        ),
       ),
     );
   }

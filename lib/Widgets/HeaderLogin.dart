@@ -44,7 +44,7 @@ class _LoginFivePainter extends CustomPainter
     path.quadraticBezierTo( size.width * .488 , size.height * .77, size.width * .6 , size.height * .6 );
     path.quadraticBezierTo( size.width * .7 , size.height * .5, size.width * .8 , size.height * .55 );
     path.quadraticBezierTo( size.width * .9 , size.height * .6, size.width , size.height * .55 );
-    path.lineTo( size.width, 0);   
+    path.lineTo( size.width, 5);   
    
     canvas.drawPath(path, paint);
   }
