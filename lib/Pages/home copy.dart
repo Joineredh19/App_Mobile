@@ -1,7 +1,7 @@
-import 'dart:async';
+//import 'dart:async';
 //import 'dart:convert';
 //import 'package:fl_chart/fl_chart.dart';
-import 'dart:convert';
+/*import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:primera_aplicacion/Pages/details.dart';
@@ -10,9 +10,9 @@ import 'package:primera_aplicacion/Widgets/CustomAppBar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../Widgets/HeaderHome.dart';
+import '../Widgets/HeaderHome.dart';*/
 
-class HomePage extends StatelessWidget {
+/*class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Recibir datos de Pantalla A
@@ -173,6 +173,6 @@ print('USUARIO $usuario - TOKEN $token');
   print(prefs.getString('token') ?? '');
   return prefs.getString('token') ?? '';
   
-}
+}*/
 
 // Uso:

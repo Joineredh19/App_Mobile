@@ -22,14 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   String nombre = '';
   String usuario = '';
   String contrasena = '';
- 
 
-
-
-
-
-
-  //String contrasena = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +30,6 @@ class _LoginPageState extends State<LoginPage> {
       future: validacion(),
       builder: (context, snapshot) {
         validacion();
-      
-      
     return Scaffold(
         body: ListView(
       padding: EdgeInsets.only(top: 0),
@@ -182,11 +173,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _navigateToHomeScreen() {
-    //   DatosParaEnviar datos = DatosParaEnviar(token,nombre);
-    /*Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage(datos: datos)),
-    );*/
+    
     print('DATOS EN EL NAVIGATOR NOMBRE: $nombre');
     Navigator.pushNamed(
       context,
@@ -219,10 +206,7 @@ class _LoginPageState extends State<LoginPage> {
     token=  data['data']['TOKEN'];
 
 _navigateToHomeScreen();
-//DatosParaManejar(tokenLogin, usuario);
- /*print('ESTE ES EL USUARIO DECODIFICADO: $usuario');
-print('ESTE ES LA CONTRASEÑA DECODIFICADO: $contrasena');
-print('ESTE ES EL TOKEN DECODIFICADO: $tokenLogin');*/
+
 }
 
 Future<bool> validacion() async{

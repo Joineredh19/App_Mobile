@@ -11,13 +11,13 @@ class HeaderLogin extends StatelessWidget
       width: double.infinity,
       // color: Colors.red,
       child: CustomPaint(
-        painter: _LoginFivePainter(),
+        painter: _LoginGeocom(),
       ),
     );
   }
 }
 
-class _LoginFivePainter extends CustomPainter
+class _LoginGeocom extends CustomPainter
 {
   @override
   void paint(Canvas canvas, Size size) {
@@ -29,7 +29,7 @@ class _LoginFivePainter extends CustomPainter
       end: Alignment.centerRight,
       colors: [
         Color.fromARGB(255, 20, 52, 158),
-        Color.fromARGB(255, 0, 88, 202)
+          Color.fromARGB(255, 20, 52, 158)
       ]
     );
 
@@ -37,82 +37,17 @@ class _LoginFivePainter extends CustomPainter
     final paint = new Paint().. shader = gradient.createShader(rect);
     paint.style = PaintingStyle.fill;
 
-    final path = new Path();
-    path.lineTo( 0, size.height);   
-    path.quadraticBezierTo( size.width * .1 , size.height * .8, size.width * .25 , size.height * .85 );
-    path.quadraticBezierTo( size.width * .4 , size.height * .9, size.width * .5 , size.height * .75 );
-    path.quadraticBezierTo( size.width * .488 , size.height * .77, size.width * .6 , size.height * .6 );
-    path.quadraticBezierTo( size.width * .7 , size.height * .5, size.width * .8 , size.height * .55 );
-    path.quadraticBezierTo( size.width * .9 , size.height * .6, size.width , size.height * .55 );
-    path.lineTo( size.width, 5);   
-   
-    canvas.drawPath(path, paint);
+final path = Path();
+path.moveTo(size.width * 1.2, 0); // Vértice superior derecho
+path.lineTo(0, 0); // Línea hacia el vértice superior izquierdo
+path.lineTo(0, size.height *1.2); // Línea hacia el vértice inferior izquierdo
+path.close(); // Cierra el triángulo
+
+canvas.drawPath(path, paint);
+
   }
   
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 
 }
-
-
-// Bottom Login
-class BottomLoginFive extends StatelessWidget
-{
-
- @override
- Widget build(BuildContext context)
- {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      // color: Colors.red,
-      child: CustomPaint(
-        painter: _BottomLoginFivePainter(),
-      ),
-    );
-  }
-}
-
-class _BottomLoginFivePainter extends CustomPainter
-{
-  @override
-  void paint(Canvas canvas, Size size) {
-
-    final Rect rect = new Rect.fromCircle(center: Offset(150.0, 50.0), radius: 180);
-
-    final Gradient gradient = new LinearGradient(
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-      colors: [
-        Color(0xff149e8e),
-        Color(0xff36ea7d)
-      ]
-    );
-
-
-    final paint = new Paint().. shader = gradient.createShader(rect);
-    paint.style = PaintingStyle.fill;
-    paint.strokeWidth = 5;
-
-    final path = new Path();
-    path.moveTo(0, size.height);
-    path.lineTo( 0, size.height * .8);   
-    path.quadraticBezierTo( size.width * .15 , size.height * .7, size.width * .45 , size.height * .73 );
-    path.quadraticBezierTo( size.width * .6 , size.height * .75, size.width * .65 , size.height * .65 );
-    path.quadraticBezierTo( size.width * .68 , size.height * .6, size.width * .85 , size.height * .6 );
-    path.quadraticBezierTo( size.width * .98 , size.height * .61, size.width , size.height * .57 );
-    path.lineTo( size.width, size.height);   
-    
-   
-
-   
-
-    canvas.drawPath(path, paint);
-  }
-  
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
-
-}
-
-

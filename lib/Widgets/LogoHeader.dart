@@ -12,16 +12,10 @@ class LogoHeader extends StatelessWidget{
       child: Container(
         height: 90,
         width:90,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(100),
-          boxShadow: [
-            BoxShadow(blurRadius: 8, color: Color.fromRGBO(248, 248, 248, 1))
-          ]
-        ),
+       
         child: Align(
           alignment: Alignment.center,
-           child: Image.asset('assets/logo.png')
+           child: Image.asset('assets/logoblanco.png')
         ),
         ),
         );

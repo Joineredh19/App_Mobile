@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:primera_aplicacion/Pages/details.dart';
 import 'package:primera_aplicacion/Pages/home.dart';
 import 'package:primera_aplicacion/Pages/login.dart';
 import 'package:primera_aplicacion/Pages/logo.dart';
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
         'logo': (_) => LogoPage(),
         'login': (_) => LoginPage(),
         'home': (_) =>  HomePage(),
-        'details': (_) => DetailsAccountPage()
+      //  'details': (_) => DetailsAccountPage()
       },
      
     );

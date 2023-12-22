@@ -1,49 +1,34 @@
-import 'dart:async';
-import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:flutter/services.dart';
 import 'package:primera_aplicacion/Pages/login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
+class HomePage extends StatefulWidget  {
+  @override
+  _Inicio createState() => _Inicio();
+}
+class _Inicio extends State<HomePage> {
+  late InAppWebViewController _webViewController;
+  
+   @override
+  void initState() {
+    super.initState();
+    // Cambiar la orientación a horizontal al iniciar la vista
+    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
+  }
 
-class HomePage extends StatelessWidget {
-
+  @override
+  void dispose() {
+    // Restaurar las preferencias de orientación al salir de la vista
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    super.dispose();
+  }
+  
   String usuario = '';
   String contrasena = '';
   String tokenLogin = '';
-
-  
-/*Future<String> obtenerToken() async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-
- /* print('+++++++VALOR GUARDADO+++++++++++');
-  print(prefs.getString('token') ?? '');*/
-  return prefs.getString('token') ?? '';
-}*/
-
-/*Future<void> hacerLogin() async {
-  final String token = await obtenerToken();
-
-  final Map<String, dynamic> decodedToken = JwtDecoder.decode(token);
-
-  usuario = decodedToken['usuario'];
-  contrasena = decodedToken['contrasena'];
-
-  print('ESTE ES EL TOKEN DECODIFICADO: $decodedToken');
-
-  final respuesta = await http.get(Uri.parse(
-      'https://sgtmovil.geocom.cl/WSSGT.php?ACCION=GET_TOKEN&USERID=$usuario&CLAVE=$contrasena'));
-
-  final Map<String, dynamic> data = jsonDecode(respuesta.body);
-    tokenLogin=  data['data']['TOKEN'];
-
-//DatosParaManejar(tokenLogin, usuario);
- /*print('ESTE ES EL USUARIO DECODIFICADO: $usuario');
-print('ESTE ES LA CONTRASEÑA DECODIFICADO: $contrasena');
-print('ESTE ES EL TOKEN DECODIFICADO: $tokenLogin');*/
-}*/
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +39,26 @@ final DatosParaEnviar datos =
   /*DatosParaManejar datos =  DatosParaManejar(tokenLogin, usuario);
 
   print('DATOS: ${datos.usuario}');*/
-   final String url = 'https://sgtmovil.geocom.cl/main.php?ACCION=ACCESO&USERID=${datos.usuario}&TOKEN=${datos.token}';
-
+  // final String urls = '';
+//print('URL pasa1: $urls');
  //  print('URL: $url');
     return Scaffold(
       
-      body: WebView(
-      initialUrl: url,
-      javascriptMode: JavascriptMode.unrestricted,
+         body: InAppWebView(
+     initialUrlRequest: URLRequest(url: Uri.parse('https://sgtmovil.geocom.cl/main.php?ACCION=ACCESO&USERID=${datos.usuario}&TOKEN=${datos.token}')),
+     
+     onWebViewCreated: (controller) {
+          _webViewController = controller;
+        },
+         onLoadStop: (controller, url) {
+          print('URL pasa2: $url');
+         
+            if (url.toString().contains('https://sgtmovil.geocom.cl/index.php?time=')) {
+           // print('URL pasa3: $urls');
+              exit(0);
+           }
+           
+         }
     )
     );
 
