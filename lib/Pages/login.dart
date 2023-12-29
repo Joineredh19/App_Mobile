@@ -26,11 +26,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder<bool>(
-      future: validacion(),
-      builder: (context, snapshot) {
-        validacion();
-    return Scaffold(
         body: ListView(
       padding: EdgeInsets.only(top: 0),
       physics: BouncingScrollPhysics(),
@@ -65,10 +60,10 @@ class _LoginPageState extends State<LoginPage> {
           child: Text('Iniciar Sesión'),
         ),
         SizedBox(height: 20),
-        ElevatedButton(
+       /* ElevatedButton(
           onPressed: _authenticateWithBiometrics,
           child: Text('Autenticar con Biometría'),
-        ),
+        ),*/
 
         /* SizedBox(height: 20),
         ElevatedButton(
@@ -79,9 +74,6 @@ class _LoginPageState extends State<LoginPage> {
         ),*/
       ],
     ));
-      }
-      )
-    );
   }
 
   Future<void> fetchData(String usuario, String contrasena) async {
@@ -117,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future<void> _authenticateWithBiometrics() async {
+  /*Future<void> _authenticateWithBiometrics() async {
     final localAuth = LocalAuthentication();
     try {
       if (await localAuth.canCheckBiometrics) {
@@ -170,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       print('Error en la autenticación biométrica: $e');
     }
-  }
+  }*/
 
   void _navigateToHomeScreen() {
     
@@ -182,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
- Future<String> obtenerToken() async {
+ /*Future<String> obtenerToken() async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 
  /* print('+++++++VALOR GUARDADO+++++++++++');
@@ -207,16 +199,16 @@ class _LoginPageState extends State<LoginPage> {
 
 _navigateToHomeScreen();
 
-}
+}*/
 
-Future<bool> validacion() async{
+/*Future<bool> validacion() async{
    String tokenGuardado = await obtenerToken();
  if (tokenGuardado!='') {
    hacerLogin();
   
  }
   return true;
-}
+}*/
 }
 
 void _crearToken(String usuario, String contrasena) {
