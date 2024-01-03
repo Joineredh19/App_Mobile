@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -17,6 +18,9 @@ class _Inicio extends State<HomePage> {
     super.initState();
     // Cambiar la orientación a horizontal al iniciar la vista
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
+
+   
+  
   }
 
   @override
@@ -24,6 +28,8 @@ class _Inicio extends State<HomePage> {
     // Restaurar las preferencias de orientación al salir de la vista
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.dispose();
+
+    
   }
   
   String usuario = '';
@@ -49,6 +55,7 @@ final DatosParaEnviar datos =
      
      onWebViewCreated: (controller) {
           _webViewController = controller;
+          
         },
          onLoadStop: (controller, url) {
           print('URL pasa2: $url');
@@ -60,6 +67,7 @@ final DatosParaEnviar datos =
            
          }
     )
+    
     );
 
   }

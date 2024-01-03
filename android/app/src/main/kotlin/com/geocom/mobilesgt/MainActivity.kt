@@ -1,4 +1,4 @@
-package com.example.primera_aplicacion
+package com.geocom.mobilesgt
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
