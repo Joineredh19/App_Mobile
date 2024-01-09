@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:http/http.dart' as http;
-import 'package:primera_aplicacion/Widgets/HeaderLogin.dart';
-import 'package:primera_aplicacion/Widgets/LogoHeader.dart';
+import 'package:sgt_mobile/Widgets/HeaderLogin.dart';
+import 'package:sgt_mobile/Widgets/LogoHeader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {

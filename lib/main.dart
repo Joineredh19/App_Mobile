@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:primera_aplicacion/Pages/home.dart';
-import 'package:primera_aplicacion/Pages/login.dart';
-import 'package:primera_aplicacion/Pages/logo.dart';
+import 'package:sgt_mobile/Pages/home.dart';
+import 'package:sgt_mobile/Pages/login.dart';
+import 'package:sgt_mobile/Pages/logo.dart';
 
 
 void main() => runApp(MyApp());

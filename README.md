@@ -21,3 +21,6 @@ flutter pub run change_app_package_name:main com.geocom.mobilesgt
 
 # Para cambiar el icono de la aplicacion
 flutter pub run flutter_launcher_icons
+
+# Android AAB
+flutter build appbundle

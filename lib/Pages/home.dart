@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:primera_aplicacion/Pages/login.dart';
+import 'package:sgt_mobile/Pages/login.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class HomePage extends StatefulWidget  {
